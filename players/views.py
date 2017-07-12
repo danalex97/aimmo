@@ -116,7 +116,6 @@ def program_level(request, num):
     LOGGER.debug('Programming game with id %s', game.id)
     return render(request, 'players/program.html', {'game_id': game.id})
 
-
 def _render_game(request, game):
     context = {
         'current_user_player_key': request.user.pk,
@@ -124,15 +123,15 @@ def _render_game(request, game):
         'static_data': game.static_data or '{}',
     }
     context['game_url_base'], context['game_url_path'] = app_settings.GAME_SERVER_LOCATION_FUNCTION(game.id)
+    # To swap between Unity WebGL and Raphael just change the template
     return render(request, 'players/watch.html', context)
-
+    # return render(request, 'players/unity.html', context)
 
 def watch_game(request, id):
     game = get_object_or_404(Game, id=id)
     if not game.can_user_play(request.user):
         raise Http404
     return _render_game(request, game)
-
 
 def watch_level(request, num):
     try:
