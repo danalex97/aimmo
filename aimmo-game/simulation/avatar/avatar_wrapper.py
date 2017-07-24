@@ -11,6 +11,20 @@ class AvatarWrapper(object):
     """
     The application's view of a character, not to be confused with "Avatar",
     the player-supplied code.
+<<<<<<< HEAD
+=======
+
+    > talks to Worker via gets.
+
+    API:
+        * decide action - fetches an action from the worker and updates the
+            current action to be executed
+        * clear action
+        * add event - attaches an event to the event setting
+            - TODO: are events used?
+        (* die    - dies and respwans at new location)
+        (* damage - take damage)
+>>>>>>> 3aef407... Got the avatar id into the front-end. Now we need to adapt the game to offer personalized world views.
     """
 
     def __init__(self, player_id, initial_location, worker_url, avatar_appearance):
