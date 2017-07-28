@@ -16,6 +16,10 @@ script:
   - python all_tests.py --coverage
 after_success:
   - coveralls
+branches:
+  only:
+    - deploy_env
+    - master
 deploy:
   provider: pypi
   user: ocadotechnology
@@ -24,5 +28,6 @@ deploy:
   distributions: "bdist_wheel sdist"
   on:
     repo: ocadotechnology/aimmo
+    all_branches: true
 after_deploy:
   - "curl -d POST -v https://semaphoreci.com/api/v1/projects/${SEMAPHORE_PROJECT_ID}/master/build?auth_token=${SEMAPHORE_API_AUTH}"
