@@ -70,16 +70,3 @@ example_project/example_project/static/
 # Created during minikube testing
 manifests
 test-bin/
-<<<<<<< HEAD
-=======
-
-# Unity builds
-*.bin
-aimmo-unity/Library/*
-aimmo-unity/Temp/*
-aimmo-unity/Build/*
-# players/static/unity/*
-git_key
-*.pyc
-*.swp
->>>>>>> 6efc82a... Working on putting the data to WebGL. We can now also communicate with JS.

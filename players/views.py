@@ -135,16 +135,9 @@ def _render_game(request, game):
         pass
 
     context['game_url_base'], context['game_url_path'] = app_settings.GAME_SERVER_LOCATION_FUNCTION(game.id)
-<<<<<<< HEAD
     # To swap between Unity WebGL and Raphael just change the template
     return render(request, 'players/watch.html', context)
     # return render(request, 'players/unity.html', context)
-=======
-
-    # To swap between Unity and web just change this
-    # return render(request, 'players/watch.html', context)
-    return render(request, 'players/unity.html', context)
->>>>>>> 3aef407... Got the avatar id into the front-end. Now we need to adapt the game to offer personalized world views.
 
 def watch_game(request, id):
     game = get_object_or_404(Game, id=id)
