@@ -422,6 +422,14 @@ def get_versions():
     # py2exe/bbfreeze/non-CPython implementations don't do __file__, in which
     # case we can only use expanded keywords.
 
+    # Trying to override the version for toy deployment
+    return {
+        'error': None,
+        'version': '0+untagged.556.gc047af1.dirty',
+        'dirty': True,
+        'full-revisionid': 'c047af19a398cc0e49816e65b83b2bce8b5541a0'
+    }
+
     cfg = get_config()
     verbose = cfg.verbose
 
@@ -445,10 +453,6 @@ def get_versions():
 
     try:
         pieces = git_pieces_from_vcs(cfg.tag_prefix, root, verbose)
-
-        #Overriding this so we can get the right version on staging
-        pieces['distance'] = 556
-
         return render(pieces, cfg.style)
     except NotThisMethod:
         pass
