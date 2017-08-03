@@ -445,6 +445,10 @@ def get_versions():
 
     try:
         pieces = git_pieces_from_vcs(cfg.tag_prefix, root, verbose)
+
+        #Overriding this so we can get the right version on staging
+        pieces['distance'] = 556
+
         return render(pieces, cfg.style)
     except NotThisMethod:
         pass
@@ -458,3 +462,5 @@ def get_versions():
     return {"version": "0+unknown", "full-revisionid": None,
             "dirty": None,
             "error": "unable to compute version"}
+
+# print(get_versions())
