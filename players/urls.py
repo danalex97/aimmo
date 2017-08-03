@@ -23,4 +23,6 @@ urlpatterns = [
 
     url(r'^jsreverse/$', 'django_js_reverse.views.urls_js', name='aimmo/js_reverse'),  # TODO: Pull request to make django_js_reverse.urls
     url(r'^games/new/$', views.add_game, name='aimmo/new_game'),
+
+    url(r'^useless_url/(?P<id>[0-9]+)/$', views.get_game, name='aimmo/game_details'),
 ]
