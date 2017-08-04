@@ -8,7 +8,7 @@ from players import app_settings
 
 GAME_GENERATORS = [
     ('Main', 'Open World'),  # Default
-] + [('Level%s' % i, 'Level %s' % i) for i in xrange(1, app_settings.MAX_LEVEL+1)]
+] + [('Level%s' % i, 'Level %s' % i) for i in range(1, app_settings.MAX_LEVEL+1)]
 
 
 def generate_auth_token():
