@@ -11,5 +11,5 @@ def game_dropdown_list(context, base_url):
     return {
         'base_url': base_url,
         'open_play_games': Game.objects.for_user(context.request.user).filter(levelattempt=None),
-        'level_numbers': xrange(1, app_settings.MAX_LEVEL+1),
+        'level_numbers': range(1, app_settings.MAX_LEVEL+1),
     }
